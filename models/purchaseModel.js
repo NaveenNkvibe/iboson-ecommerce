@@ -2,19 +2,21 @@ const mongoose = require('mongoose');
 
 const purchaseSchema = new mongoose.Schema({
     user_id:{
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Users'
         required: true
     },
-    product_details:{
-        type: String,
+    product__id:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Products',
         required: true
     },
     quantity:{
-        type: String,
+        type: Number,
         required: true
     },
     purchase_date:{
-        type: String,
+        type: Date,
         required: true
     },
     purchase_amount:{
@@ -23,4 +25,4 @@ const purchaseSchema = new mongoose.Schema({
     },
 }, {timestamp: true})
 
-module.exports = mongoose.model('Purchases', purchaseSchema);
+module.exports = mongoose.model('Purchase', purchaseSchema);

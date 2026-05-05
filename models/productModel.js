@@ -5,14 +5,14 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    prize:{
-        type: String,
+    price:{
+        type: Number,
         required: true
     },
     exp_date:{
-        type: String,
+        type: Date,
         required: true
     },
-}, {timestamp: true})
+}, {timestamps: true})
 
-module.exports = mongoose.model('Products', productSchema);
+module.exports = mongoose.model('Product', productSchema);
