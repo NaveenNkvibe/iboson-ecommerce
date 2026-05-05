@@ -3,14 +3,14 @@ const app = express();
 const cors = require('cors')
 
 app.use(express.json());
-cors();
+app.use(cors());
 
 const userRouter = require('./routes/userRouter');
-const productRouter = require('./routes/userRouter');
-const purchaseRouter = require('./routes/userRouter');
+const productRouter = require('./routes/productRouter');
+const purchaseRouter = require('./routes/purchaseRouter');
 
-app.use('api/user', userRouter);
-app.use('api/product', productRouter);
-app.use('api/purchase', purchaseRouter);
+app.use('/api/user', userRouter);
+app.use('/api/product', productRouter);
+app.use('/api/purchase', purchaseRouter);
 
 module.exports = app;
